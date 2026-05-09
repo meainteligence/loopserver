@@ -1,0 +1,379 @@
+/* ============================================================
+   LOOP 26 - AESTHETIC FRAMEWORK (OFFICIAL 2026)
+   UNIFIED & RESPONSIVE VERSION
+   ============================================================ */
+
+:root {
+    --apple-bg: #fbfbfd;
+    --apple-text: #1d1d1f;
+    --apple-gray: #6e6e73;
+    --accent-blue: #0071e3;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+    --ai-gradient: linear-gradient(135deg, #0071e3 0%, #42bff9 50%, #2bd9ff 100%);
+    --surface-blur: blur(30px) saturate(210%);
+}
+
+/* 1. RESET E REFINAMENTO */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--apple-bg);
+    color: var(--apple-text);
+    line-height: 1.47;
+    letter-spacing: -0.018em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. NAVBAR (ADAPTÁVEL) */
+.apple-navbar {
+    background: var(--glass-bg);
+    backdrop-filter: var(--surface-blur);
+    -webkit-backdrop-filter: var(--surface-blur);
+    height: 56px;
+    width: 94%;
+    max-width: 1100px;
+    margin: 14px auto;
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.3s ease;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 24px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--apple-text);
+    letter-spacing: -0.8px;
+}
+
+.lev { color: var(--accent-blue); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links li a {
+    color: var(--apple-text);
+    opacity: 0.65;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover { opacity: 1; }
+
+/* 3. SEARCH BAR */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.04);
+    padding: 6px 16px;
+    border-radius: 50px;
+}
+
+#site-search {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 130px;
+    padding-left: 8px;
+    color: var(--apple-text);
+}
+
+/* 4. HERO & HEADER */
+.hero-top {
+    margin-top: 120px;
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.ai-header {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.ai-badge {
+    background: var(--ai-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+}
+
+.ai-header h2 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    margin: 20px 0;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.ai-header p {
+    color: var(--apple-gray);
+    font-size: clamp(17px, 2vw, 21px);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 5. BOTÕES GLASS */
+.apple-button-glass {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 30px;
+    border-radius: 980px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    font-size: 17px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.apple-button-glass:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 113, 227, 0.15);
+}
+
+.apple-button-glass:active { transform: scale(0.97); }
+
+/* 6. GRID DE CARDS IA */
+.ai-experience {
+    padding: 60px 20px;
+}
+
+.container-links {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.bloco-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 32px;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+}
+
+.bloco-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+}
+
+.bloco-card i {
+    font-size: 32px;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.bloco-card h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.bloco-card p {
+    color: var(--apple-gray);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* 7. SYSTEM PREVIEW (SCREENSHOTS) */
+.system-preview {
+    padding: 80px 20px;
+    background: #f5f5f7;
+}
+
+.screenshot-grid {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.screenshot-card {
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.screenshot-card img {
+    width: 100%;
+    transition: 0.5s;
+}
+
+.screenshot-card:hover img { transform: scale(1.05); }
+
+.caption {
+    padding: 15px;
+    background: white;
+    text-align: center;
+    font-size: 13px;
+    color: var(--apple-gray);
+    font-weight: 600;
+}
+
+/* 8. FOOTER */
+.apple-footer {
+    background: #f5f5f7;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-brands {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+.footer-logo { height: 24px; }
+
+.footer-content {
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--apple-gray);
+}
+
+.footer-mapa {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-mapa a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   9. MEDIA QUERIES (A MÁGICA DA RESPONSIVIDADE)
+   ============================================================ */
+
+/* TABLETS */
+@media (max-width: 1024px) {
+    .screenshot-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* CELULARES (Geral) */
+@media (max-width: 768px) {
+    .apple-navbar {
+        width: 92%;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .nav-links {
+        display: none; /* Esconde links de texto no celular */
+    }
+
+    .nav-content {
+        padding: 0 16px;
+    }
+
+    .hero-top {
+        margin-top: 110px;
+    }
+
+    .ai-header h2 {
+        font-size: 32px;
+    }
+
+    .container-links, .screenshot-grid {
+        grid-template-columns: 1fr; /* Tudo vira uma coluna única */
+    }
+
+    .apple-button-glass {
+        width: 100%; /* Botão ocupa a largura toda */
+    }
+
+    .footer-content {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-brands {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+/* CELULARES PEQUENOS */
+@media (max-width: 480px) {
+    .ai-header h2 {
+        font-size: 28px;
+    }
+    
+    .bloco-card {
+        padding: 30px 20px;
+    }
+}

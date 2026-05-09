@@ -1,0 +1,542 @@
+/* ============================================================
+   LOOP 26 - AESTHETIC FRAMEWORK (2026 OFFICIAL)
+   ============================================================ */
+
+:root {
+    --apple-bg: #5FA8D3;
+    --apple-text: #1d1d1f;
+    --apple-gray: #6e6e73;
+    --accent-blue: #0071e3;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+    --ai-gradient: linear-gradient(135deg, #0071e3 0%, #42bff9 50%, #2bd9ff 100%);
+    --surface-blur: blur(30px) saturate(210%);
+}
+
+/* 1. RESET E REFINAMENTO */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--apple-bg);
+    color: var(--apple-text);
+    line-height: 1.47;
+    letter-spacing: -0.018em;
+}
+
+/* 2. NAVBAR */
+.apple-navbar {
+    background: var(--glass-bg);
+    backdrop-filter: var(--surface-blur);
+    -webkit-backdrop-filter: var(--surface-blur);
+    height: 56px;
+    width: 94%;
+    max-width: 1100px;
+    margin: 14px auto;
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 24px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--apple-text);
+    letter-spacing: -0.8px;
+}
+
+.lev { color: var(--accent-blue); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links li a {
+    color: var(--apple-text);
+    opacity: 0.65;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover { opacity: 1; }
+
+/* 3. SEARCH BAR */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.04);
+    padding: 6px 16px;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-container:focus-within {
+    background: rgba(0,0,0,0.08);
+    width: 240px;
+}
+
+#site-search {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 130px;
+    padding-left: 8px;
+    color: var(--apple-text);
+}
+
+.search-results {
+    position: absolute;
+    top: 52px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px);
+    width: 280px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    display: none;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.search-results a {
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--apple-text);
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 4. HERO TOP - FUNDO REMOVIDO */
+.hero-top {
+    margin-top: 100px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.imagens {
+    background: transparent; /* Removido o preto */
+    padding: 40px 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.imagens img {
+    max-width: 95%;
+    width: 1000px;
+    border-radius: 42px;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.08); /* Sombra mais leve para fundo claro */
+}
+
+.imagens img:hover { transform: scale(1.02); }
+
+/* 5. SEÇÃO IA */
+.ai-experience {
+    padding: 100px 24px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.ai-header {
+    max-width: 850px;
+    margin: 0 auto 80px;
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-badge {
+    background: var(--ai-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
+
+.ai-header h2 {
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 700;
+    margin: 24px 0;
+    letter-spacing: -2px;
+}
+
+.container-links {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.bloco-card {
+    background: #ffffff;
+    padding: 48px 32px;
+    border-radius: 36px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+    text-align: left;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.bloco-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.06);
+}
+
+.bloco-card i {
+    font-size: 36px;
+    margin-bottom: 24px;
+    color: var(--accent-blue);
+    display: block;
+}
+
+/* 6. RODAPÉ */
+.apple-footer {
+    background: #f5f5f7;
+    padding: 80px 24px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-brands {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+.footer-logo { height: 28px; }
+
+.footer-content {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--apple-gray);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-mapa {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.footer-mapa a {
+    color: #424245;
+    text-decoration: none;
+}
+
+/* 7. RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .apple-navbar { width: 90%; }
+    .nav-links { display: none; }
+    .footer-content {
+        flex-direction: column-reverse;
+        gap: 24px;
+        text-align: center;
+    }
+}
+.apple-button-glass {
+    /* Reset e Layout */
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 980px;
+    
+    /* O "Segredo" do Estilo Apple */
+    background: rgba(255, 255, 255, 0.1); /* Fundo branco bem transparente */
+    backdrop-filter: blur(15px);         /* Desfoque do que está atrás */
+    -webkit-backdrop-filter: blur(15px);  /* Suporte para Safari */
+    
+    /* Bordas e Sombras */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda fina e suave */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);  /* Sombra leve para dar profundidade */
+    
+    /* Texto */
+    color: #003ca3; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    letter-spacing: -0.022em;
+    
+    /* Transição */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse */
+.apple-button-glass:hover {
+    background: rgba(255, 255, 255, 0.2); /* Fica levemente mais claro */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px); /* Sobe um pixel de leve */
+}
+
+/* Efeito ao clicar */
+.apple-button-glass:active {
+    transform: scale(0.96);
+    background: rgba(255, 255, 255, 0.15);
+}
+/* Ajuste fino para os botões dentro dos cards de projeto */
+.bloco-card .apple-button-glass {
+    margin-top: auto; /* Empurra o botão para o final do card */
+    text-align: center;
+    width: fit-content;
+    border: 1px solid rgba(0, 113, 227, 0.2); /* Borda levemente azulada */
+    color: var(--accent-blue);
+}
+
+.bloco-card .apple-button-glass:hover {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+}
+/* Seção de Destaque */
+.one-more-thing {
+    background-color: #ffffff; /* Fundo preto para o texto brilhar */
+    padding: 120px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.omt-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Texto com Gradiente Animado */
+.gradient-text {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    
+    /* Configuração do Gradiente */
+    background: linear-gradient(
+        to right, 
+        #ffffff, 
+        #a2a2a2, 
+        #3b82f6, 
+        #9333ea, 
+        #ffffff
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Animação */
+    animation: shine 4s linear infinite;
+}
+
+.sub-text {
+    font-size: 2.5rem;
+    color: #000000;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.description-text {
+    font-size: 1.2rem;
+    color: #86868b;
+    margin-top: 20px;
+}
+
+/* Keyframes para o movimento das cores */
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 768px) {
+    .gradient-text {
+        font-size: 3rem;
+    }
+    .sub-text {
+        font-size: 1.8rem;
+    }
+}
+@media (max-width: 768px) {
+    .container-products { gap: 20px; }
+    .product-card { padding: 40px 24px; }
+    .upgrade-container { padding: 40px 20px; }
+}
+/* Estilização da Seção de Lançamento */
+.hero-launch {
+    padding: 120px 24px 60px;
+    text-align: center;
+    background: var(--apple-bg);
+}
+
+/* Container do Contador seguindo seu Framework Glass */
+.countdown-container-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px 60px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--surface-blur);
+    -webkit-backdrop-filter: var(--surface-blur);
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    margin: 40px 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.timer-unit span {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: var(--apple-text);
+    line-height: 1;
+}
+
+.timer-unit label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--apple-gray);
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+.timer-divider {
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--apple-gray);
+    padding-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* Ajuste do Título para o Tema Claro */
+.hero-launch .gradient-text {
+    background: linear-gradient(to right, #989a1f, #840ef2, #0071e3, #fb0404);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 5s linear infinite;
+    font-size: clamp(3rem, 8vw, 6rem);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .countdown-container-glass {
+        padding: 20px;
+        gap: 8px;
+    }
+    .timer-unit span { font-size: 32px; min-width: 50px; }
+    .timer-divider { font-size: 24px; }
+}
+/* ANTI SCROLL LATERAL */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* IMAGENS */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* COUNTDOWN RESPONSIVO */
+.countdown-container-glass {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.timer-unit {
+    min-width: 60px;
+}
+
+/* GRID */
+.container-links {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .imagens img {
+        border-radius: 20px;
+    }
+
+    .bloco-card {
+        padding: 24px;
+    }
+
+}   
+
+/* ============================================================
+   LOOP WEB CSS 2025-2026 SERVICE
+   FRAMEWORK: LOOP 26 - AESTHETIC EDITION (OFFICIAL)
+   DESCRIÇÃO: Design focado em Hiper-Minimalismo e Glassmorphism.
+   ============================================================  */
